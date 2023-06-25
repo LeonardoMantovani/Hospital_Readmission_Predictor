@@ -10,6 +10,7 @@ The model utilizes the Random Forest algorithm, which is an ensemble learning me
 
 The dataset used for training and evaluation contains various features related to patients' demographics, medical history, and treatment details. Each record in the dataset represents a patient's information along with a binary label indicating whether they were readmitted to the hospital or not.
 
+### EDA
 
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/e358449b-8ae2-400b-b096-7148a40aa3dc)
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/938182b5-2a4e-473d-987d-11a2b32942c2)
