@@ -1,4 +1,4 @@
-# Hospital Readmission Prediction using Random Forest
+# Hospital Readmission Prediction using Random Forest 🩺
 
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/69bd4333-f5bb-4740-9b77-11fa860eec1d)
 
@@ -6,11 +6,11 @@ This repository contains a machine learning model trained on healthcare data to 
 
 The model utilizes the Random Forest algorithm, which is an ensemble learning method that combines multiple decision trees to make predictions. Random Forest is a popular choice for classification tasks due to its ability to handle complex relationships and avoid overfitting.
 
-## Dataset
+## Dataset 📂
 
 The dataset used for training and evaluation contains various features related to patients' demographics, medical history, and treatment details. Each record in the dataset represents a patient's information along with a binary label indicating whether they were readmitted to the hospital or not.
 
-### EDA
+### EDA 📊
 
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/e358449b-8ae2-400b-b096-7148a40aa3dc)
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/938182b5-2a4e-473d-987d-11a2b32942c2)
@@ -22,7 +22,7 @@ The Random Forest model is composed of a collection of decision trees. Each deci
 
 The model can handle both categorical and numerical features. For categorical features, appropriate encoding techniques such as one-hot encoding or label encoding are applied.
 
-## Model Training
+## Model Training 🛰️
 
 The model training process involves the following steps:
 
@@ -58,7 +58,7 @@ An example usage code snippet is provided in the repository to guide you through
 - `train.csv` : training dataset.
 - `README.md` : description and procedure about the repository. 
 
-## Conclusion
+## Conclusion 💡
 
 ![image](https://github.com/keerthikkn/Hospital_Readmission_Prediction/assets/42544473/5f567711-ba57-435b-826f-3881bd33dbcf)
 
