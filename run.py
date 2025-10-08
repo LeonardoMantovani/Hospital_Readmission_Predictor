@@ -14,6 +14,24 @@ def clean_input_data(df, expected_columns):
     for col in ['diag_1', 'diag_2', 'diag_3', 'diag_4', 'diag_5']:
         df_clean[col] = pd.to_numeric(df_clean[col].apply(lambda v: v if str(v)[0].isnumeric() else np.nan))
 
+    # Parse X1 and X2 columns to make them numerical
+    def parse_dosage(value):
+        if pd.isna(value):
+            return 0
+        elif isinstance(value, str) and value.startswith('>'):
+            try:
+                return float(value[1:])
+            except ValueError:
+                return np.nan
+        elif isinstance(value, float):
+            return value
+        else:
+            return np.nan
+
+    for col in ['X1', 'X2']:
+        if col in df_clean.columns:
+            df_clean[col] = df_clean[col].apply(parse_dosage)
+
     # Drop unnecessary columns, and ensure all expected ones are present
     available_columns = [col for col in expected_columns if col in df_clean.columns]
     missing_columns = [col for col in expected_columns if col not in df_clean.columns]
@@ -53,7 +71,7 @@ if __name__ == '__main__':
     print(f"Input data shape: {input_df.shape}")
 
     # Store encounter_ids for output
-    encounter_ids = input_df['encounter_id']
+    encounter_ids = input_df['encounter_id'].copy()
 
     # Clean input data
     input_df = clean_input_data(input_df, artifacts.get('feature_names'))
@@ -66,7 +84,7 @@ if __name__ == '__main__':
     # Generate predictions
     predictions = model.predict(input_df)
     output_df = pd.DataFrame()
-    output_df['encounter_id'] = encounter_ids
+    output_df['encounter_id'] = encounter_ids.loc[input_df.index]
     output_df['readmitted_prediction'] = predictions
 
     # Save predictions to output CSV file
